@@ -27,8 +27,43 @@
                 font-weight: normal;
                 font-size: 18pt;
             }
-            p {
-                line-height: 110%;
+            tr.break td {
+                padding-top: 10pt;
+                padding-bottom: 30pt;
+            }
+            td {
+                vertical-align: top;
+                padding-bottom: 10px;
+                padding-right: 10px;
+            }
+            td img {
+                width: 160px;
+                height: 160px;
+            }
+            div.name {
+                font-size: 16pt;
+                font-weight: bold;
+            }
+            div.name .affiliation {
+                color: rgb(100, 100, 100);
+                font-size: 12pt;
+                padding-left: 2px;
+                font-weight: normal;
+            }
+            div.title {
+                font-weight: bold;
+                margin-top: 12pt;
+            }
+            div.abstract {
+                font-size: 9pt;
+                color: rgb(100, 100, 100);
+            }
+            div.abstract p {
+                margin: 6pt 0 6pt 0;
+                padding: 0;
+            }
+            div.abstract ul {
+                margin: 6pt 0 6pt 0;
             }
             @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
                 body {
@@ -50,7 +85,7 @@
 	</head>
 	<body><div class="main">
         <h1>BTW 2025 Workshop on Advances in Cloud Data Management</h1>        
-        <p style="margin-bottom: 20pt;">March 4, 2025 in Bamberg, Germany. Collocated with the <a href="https://btw2025.gi.de/">BTW 2025 conference</a>.</p>
+        <p style="margin-bottom: 18pt;">March 4, 2025 in Bamberg, Germany. Collocated with the <a href="https://btw2025.gi.de/">BTW 2025 conference</a>.</p>
         
         <p>Organizers:</p>
         <ul>
@@ -59,7 +94,198 @@
             <li>Tobias Ziegler, TU Munich, t.ziegler@tum.de</li>
         </ul>
 
+        <h2>Preliminary Program</h2>
+        <!-- table with program, the table has two columns, the first column has a profile pic of size 165px by 165px, the second 
+         column has the name of the person, affiliation, time of the talk, title, abstract -->
+        <table>
+            <tr>
+                <td><img src="img/peter.jpg"></td>
+                <td>
+                    <div class="name">Peter Boncz <span class="affiliation">CWI</span></div>
+                    <div class="time">09:00 &ndash; 09:45</div>
+                    <div class="title">Keynote</div>
+                    <div class="abstract"><p></p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/viktor.jpg"></td>
+                <td>
+                    <div class="name">Viktor Leis <span class="affiliation">TU Munich</span></div>
+                    <div class="time">09:50 &ndash; 10:10</div>
+                    <div class="title">The Future of the Cloud and the Future of Cloud Databases</div>
+                    <div class="abstract"><p>Cloud computing is transforming the technology landscape, with database systems at the forefront of this change. A striking example is an online bookstore that has grown to dominate the database market. The appeal of cloud computing for IT users lies in several key factors: a reduced total cost of ownership through economies of scale and advanced services that minimize the burden of "undifferentiated heavy lifting". More broadly, cloud computing reflects a civilizational trend toward increased technological and economic specialization.
+                        </p><p>However, the current state of cloud computing often falls short of these promises. Hyperscalers are evolving into vertically integrated oligopolies, controlling everything from basic server rentals to high-level services. This trend is only accelerating, potentially leading to a future where hyperscalers establish software standards and design their own hardware, making it impossible to compete. Moreover, despite differences in branding, the major cloud providers are fundamentally similar, lacking interoperability and fostering vendor lock-in. As a result, we risk returning to the monopolistic conditions of the IBM and Wintel eras and ultimately technological stagnation due to limited competition.
+                        </p><p>Yet there is cause for optimism. Great technology can still succeed, as the multi-cloud data warehouse Snowflake has shown. The rise of data lakes and open standards, such as Parquet and Iceberg, further underscores the potential for interoperability and innovation. Additionally, there are orders-of-magnitude gaps between the price of existing cloud services and what is theoretically achievable, creating opportunities for disruption. These price gaps persist because cloud services are inherently complex to build, requiring redundant efforts and leading to high barriers to entry. For example, a DBMS might need a highly available control plane, a write-ahead log service, and distributed storage servers. None of these abstractions is available as a read-to-use service, which makes it difficult to enter the cloud database market. The current cloud landscape is more a result of historical circumstances than optimal design, leaving ample room for disruption.
+                        </p><p>In this talk, I will outline a blueprint for reinventing the cloud by focusing on three key areas: First, we need a unified multi-cloud abstraction over virtualized hardware. Second, we should establish new open standards for existing low-level cloud services. Third, we need abstractions that simplify the creation of new cloud services, such as reusable control planes and foundational components like log services and page servers. Together, this will make it significantly easier to build, deploy, and monetize new cloud services. Increased competition would commoditize foundational services and spur technological innovation.
+                    </p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/benjamin.jpg"></td>
+                <td>
+                    <div class="name">Benjamin Wagner <span class="affiliation">Firebolt</span></div>
+                    <div class="time">10:10 &ndash; 10:30</div>
+                    <div class="title">Firebolt Transactions: Consistency, Performance and Availability - Pick All Three</div>
+                    <div class="abstract"><p>Firebolt is a data warehouse built for data intensive applications. To support these workloads, our metadata services enable:
+                        <ul>
+                            <li>An unlimited number of concurrent writers across a region</li>
+                            <li>Strong consistency with snapshot isolation</li>
+                            <li>Low overhead for read-only transactions (~2ms) on petabytes of data</li>
+                            <li>Powerful metadata operations such as zero-copy cloning and time travel</li>
+                        </ul>
+                        This talk provides a deep-dive into how we built Firebolt’s metadata services on top of FoundationDB. We focus on how to leverage the underlying key-value space in a way that supports low-latency transactions. Based on this, we describe our internal API design as well as dependent services such as metadata snapshot compaction and garbage collection. Finally, we describe how we deploy our service on AWS to minimize network latency.
+                    </p></div>
+                </td>
+            </tr>
+            <tr class="break">
+                <td></td>
+                <td>
+                    <div class="name">Coffee break</div>
+                    <div class="time">10:30 &ndash; 11:00</div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/fabian.jpg"></td>
+                <td>
+                    <div class="name">Fabian Hueske <span class="affiliation">Confluent</span></div>
+                    <div class="time">11:00 &ndash; 11:20</div>
+                    <div class="title">Preparing Data for Analytics: Exploring Modern Approaches to Data Pipelines</div>
+                    <div class="abstract"><p>Cloud data warehouses and data lakes power the analytical workloads of many enterprises. These systems store vast amounts of data, generated by external sources, that must be ingested before they are ready for querying. The ingested data typically requires cleaning, transformation, enrichment, integration, and aggregation to ensure it is in the right format for effective analysis.
+                        </p><p>Given the scale of data being processed, the transformation engines responsible for these tasks must offer high throughput while maintaining cost efficiency. Furthermore, low-latency processing is important for meeting the demands of many real-time use cases.
+                        </p><p>Different architectures exist for implementing data pipelines that perform these transformations. Some, like Snowflake's Dynamic Tables, rely on periodic batch processing, while others leverage stateful stream processing engine such as Apache Flink. In this talk, we discuss different data pipeline architectures and analyze their strengths, limitations, and trade-offs. 
+                    </p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/andreas.jpg"></td>
+                <td>
+                    <div class="name">Andreas Kipf <span class="affiliation">TU Nürnberg</span></div>
+                    <div class="time">11:20 &ndash; 11:50</div>
+                    <div class="title">Workload-Driven Indexing in the Cloud</div>
+                    <div class="abstract"><p>In this talk, I will present predicate caching, a lightweight secondary indexing mechanism for cloud data warehouses. Specifically, I will show that workloads are highly repetitive, i.e., users and systems frequently send the same queries. To improve query performance on such workloads, most systems rely on techniques like result caching or materialized views. However, these caches are often stale due to inserts, deletes, or updates that occur between query repetitions. Predicate caching, on the other hand, improves query latency for repeating scans and joins in a lightweight manner, by simply storing ranges of qualifying tuples. Such an index can be built on the fly and can be kept online without recomputation. We implemented a prototype of this idea in the cloud data warehouse Amazon Redshift. Our evaluation shows that predicate caching improves query runtimes by up to 10x on selected queries with negligible build overhead.</p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/tomas.jpg"></td>
+                <td>
+                    <div class="name">Tomas Karnagel <span class="affiliation">Observe</span></div>
+                    <div class="time">11:50 &ndash; 12:10</div>
+                    <div class="title">OBSERVE - Petascale Streaming for Observability</div>
+                    <div class="abstract"><p>Observe brings together petabyte-per-day streaming ingest, relational analytics, search, and real-time monitoring capabilities under one product. Observe was built to enable all types of observability workloads — logs, metrics, traces, application performance, and security — as well as complex business data analytics, over a single connected data lake. The platform is powered by the Snowflake Data Cloud supporting our hundreds of millions of queries per day. In this talk we will give an overview of the architecture and capabilities of the Observe platform.</p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/panos.jpg"></td>
+                <td>
+                    <div class="name">Panos Parchas <span class="affiliation">AWS Redshift</span></div>
+                    <div class="time">12:10 &ndash; 12:30</div>
+                    <div class="title">Query acceleration via auto-tuning in Amazon Redshift</div>
+                    <div class="abstract"><p>Amazon Redshift is the first fully-managed, petabyte-scale, enterprise-grade cloud data warehouse that revolutionized the data warehousing industry. During the last decade, the Redshift team is constantly innovating by extending the functionality and improving the efficiency of the system. A large focus area has been "ease of use" that targets on auto-tuning and ML techniques to make the system more performant for the unique characteristics of individual workloads. This talk provides an overview of Redshift's architecture, focusing on query processing. Within this context, we discuss techniques that the team has developed during the past couple of years for query acceleration and we dive deep into our novel data distribution and data layout schemes.</p></div>
+                </td>
+            </tr>
+            <tr class="break">
+                <td></td>
+                <td>
+                    <div class="name">Lunch break</div>
+                    <div class="time">12:30 &ndash; 13:40</div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/ismail.jpg"></td>
+                <td>
+                    <div class="name">Ismail Oukid <span class="affiliation">Snowflake</span></div>
+                    <div class="time">13:40 &ndash; 14:00</div>
+                    <div class="title">The Fine Art of Work Skipping</div>
+                    <div class="abstract"><p>Modern cloud-based analytics systems may have to process petabytes of data per query. The most efficient way to process this data is to not process it at all, i.e., to skip work. The most common work skipping technique is Pruning, a family of techniques that helps skip loading and processing data that does not pertain to the final result. In this talk we will discuss why pruning is so important for query performance, especially in a cloud-based analytical system, by analyzing Snowflake customer workloads. We will explore various pruning techniques employed at Snowflake - filter pruning, TopK pruning, and join pruning - and demonstrate how their combined application skips the majority of micro-partitions. We will conclude by briefly touching on another type of work skipping, namely result caching and reuse.</p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/yongluan.jpg"></td>
+                <td>
+                    <div class="name">Yongluan Zhou <span class="affiliation">Copenhagen University</span></div>
+                    <div class="time">14:00 &ndash; 14:20</div>
+                    <div class="title">Data Management in Event-Driven Microservice Architectures</div>
+                    <div class="abstract"><p>Building cloud-native applications necessitates new approaches to software architecture to achieve a high level of scalability, elasticity, responsiveness, fault tolerance, and decoupling. Event-driven microservice architecture (EDMA) emerges as a suitable architectural style that fulfills this requirement. EDMA encourages the breakdown of an application into independent and asynchronous components that can be deployed, scaled, and evolved separately while allowing for the isolation of failures from one another. The growing popularity of EDMA in the industry has prompted cloud providers to offer rich features tailored for its deployments, such as specialized container-based technologies for deploying and scaling microservices, message queueing services for communication between loosely coupled microservices, multi-tenant database technologies to support the isolation of microservices, and various application frameworks and side-car technologies to facilitate code development, evolution, and maintenance of microservices. 
+                        </p><p>However, due to the asynchronous nature of EDMA, event-driven microservices often adopt eventual consistency following the BASE model. Our recent survey found that these practices lead to many data management challenges in achieving various application safety properties. Essentially, EDMAs sacrifice the important benefits of traditional n-tier architectures: completely delegating data management, failure recovery, and data consistency assurances to the database systems. On the contrary, developers are burdened with implementing these features within the application code. These challenges have sparked the recent calls to move away from EDMA and revert to the traditional n-tier architecture. In this talk, we will argue that it is feasible to evolve data management systems to deliver advantages from both worlds. A fundamental issue is that the decades-old database programming abstraction, which includes database programming APIs (such as JDBC) and stored procedures, does not meet the demands of modern software architectures like EDMA. Modernizing the programming abstraction and system architecture of database systems is the key to achieving this goal.
+                    </p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/alexander.jpg"></td>
+                <td>
+                    <div class="name">Alexander Böhm <span class="affiliation">SAP</span></div>
+                    <div class="time">14:20 &ndash; 14:40</div>
+                    <div class="title">The challenges of decomposing database systems in the cloud</div>
+                    <div class="abstract"><p>Modern cloud native software architectures follow a micro-services approach. They decompose complex applications into sets of small, individual services with clearly defined APIs and can be implemented by small development teams. Ideally, these microservices can iterate quickly, with short development cycles, frequent releases to production, a small blast radius in case of failures, and high degrees of freedom regarding e.g. the choice of the programming language and development style. Moreover, the individual services can be scaled separately, leading to a better, more fine-grained resource allocation and reduced overall costs.
+                        </p><p>Cloud-native database management systems such as Aurora, AlloyDB, Sokrates, PolarDB, Spanner, BigQuery, HANA Cloud, and others have recognized this trend, and decomposed their database core into multiple building blocks. Most prominent is the separation into distinct compute and storage layers, but more advanced and nuanced deployments are also found: This includes the XLOG service that factorizes out WAL processing in Sokrates, the disaggregated shuffle layer for in-memory joins in Dremel’s runtime system, Spanner’s zonemaster data placement service, or the separation of the query optimizer to a separate service in Greenplum’s Orca design.
+                        </p><p>While the overall benefits of decomposition such as better scalability, elasticity, and the efficient use of resources are typically advertised publicly in corporate blogs and academic publications, decomposition also entails notable downsides that are not prominently discussed and often overlooked.
+                        </p><p>In this talk, we highlight the challenges of decomposing cloud-native database management systems into multiple services using existing industry systems as concrete examples. We also give a perspective on how those challenges can be addressed in a systematic manner. Among others, we discuss the implications of decomposition on latency, which is particularly important for transaction processing and HTAP systems such as Aurora, AlloyDB, Sokrates, and HANA Cloud.
+                        </p><p>We outline the additional complexity for troubleshooting highly distributed systems with potentially dozens of services, and how this challenge can be addressed. Moreover, we review the implications of separating tightly coupled components (e.g. the query optimizer, metadata catalog, and runtime system). We conclude our overview with a discussion of the consequences of using (too) many microservices for the availability and reliability of the overall database management system, and highlight implications for the development processes of the involved services and teams.
+                    </p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/thomas.jpg"></td>
+                <td>
+                    <div class="name">Thomas Bodner <span class="affiliation">HPI Potsdam</span></div>
+                    <div class="time">14:40 &ndash; 15:00</div>
+                    <div class="title">Data Processing on Elastic Cloud Resources</div>
+                    <div class="abstract"><p>Analytical data products, such as business intelligence reports and machine learning models, require processing large amounts of data using extensive computational resources. Traditionally, provisioning resources involves high up-front expenses. The cloud, as a short-term provisioning model, provides cost-effective access to pools of resources and, as a result, is the standard for deploying data processing systems today. Recently, serverless cloud computing embodies resource pools that are highly elastic. This elasticity has the potential to make cloud-based systems easier to use and more cost-efficient, avoiding complex resource management and under-utilization.
+                        </p><p>Motivated by the potential impact that serverless cloud infrastructure has on data processing systems, in this talk we explore the use of this category of highly elastic cloud resources. We first evaluate the performance and cost characteristics of the public serverless infrastructure from AWS. Based on comprehensive experiments with a range of compute and storage services, as well as end-to-end analytical workloads, we identify distinct boundaries for performance variability in serverless networks and storage. In addition, we find economic break-even points for serverless versus server-based storage and compute resources. These insights guide the usage of serverless infrastructure for data processing.
+                        </p><p>We then present Skyrise, a query processor that is built entirely on serverless resources. Skyrise employs a number of adaptive and cost-based techniques to operate within the limits, where serverless data processing remains practical. Our evaluation shows that Skyrise provides competitive performance and cost with commercial Query-as-a-Service (QaaS) systems for terabyte-scale queries of analytical TPC benchmarks. Furthermore, Skyrise leverages the elasticity of its underlying infrastructure for cost efficiency in ad-hoc and low-volume workloads, compared to cloud data systems deployed on virtual servers.
+                        </p><p>Overall, we show that serverless resources are a viable foundation and offer economic gains for data processing. Since current serverless platforms have various limitations, we discuss how our results can be extended to emerging serverless system designs.
+                    </p></div>
+                </td>
+            </tr>
+            <tr class="break">
+                <td></td>
+                <td>
+                    <div class="name">Coffee break</div>
+                    <div class="time">15:00 &ndash; 15:30</div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/sven.jpg"></td>
+                <td>
+                    <div class="name">Sven Wagner-Boysen <span class="affiliation">Databricks</span></div>
+                    <div class="time">15:30 &ndash; 15:50</div>
+                    <div class="title">Databricks Lakeguard: Supporting fine-grained access control and multi-user capabilities for Apache Spark workloads</div>
+                    <div class="abstract"><p>Enterprises want to apply fine-grained access control policies to manage increasingly complex data governance requirements. Rich policies should be uniformly applied across all their workloads. In this paper, we present Databricks Lakeguard, our implementation of a unified governance system that enforces fine-grained data access policies, row-level filters and column masks across all of an enterprise’s data and AI workloads. Lakeguard builds upon two main components: First, it uses Spark Connect, a JDBC-like execution protocol, to separate the client application from the server and ensure version compatibility. Second, it leverages container isolation in Databricks’ cluster manager to securely isolate user-supplied code from the core Spark engine. With Lakeguard, a user’s permissions are enforced for any workload and in any supported language, SQL, Python, Scala, and R on multi-user compute. This work overcomes fragmented governance solutions, where fine-grained access control could only be enforced for SQL workloads, while big data processing with frameworks such as Apache Spark relied on coarse-grained governance at the file level with cluster-bound data access.
+                    </p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/maximilian.jpg"></td>
+                <td>
+                    <div class="name">Maximilian Böther <span class="affiliation">ETH Zurich</span></div>
+                    <div class="time">15:50 &ndash; 16:10</div>
+                    <div class="title">Decluttering the data mess in LLM training</div>
+                    <div class="abstract"><p>Training large language models (LLMs) presents new challenges for managing training data due to ever-growing model and dataset sizes. State-of-the-art LLMs are trained over trillions of tokens that are aggregated from a cornucopia of different datasets, forming collections such as RedPajama, Dolma, or FineWeb. However, as the data collections grow and cover more and more data sources, managing them becomes time-consuming, tedious, and prone to errors. The proportion of data with different characteristics (e.g., language, topic, source) has a huge impact on model performance.
+                        </p><p>In this abstract paper, we present three challenges we observe for training LLMs due to the lack of system support for managing and mixing data collections. Based on those challenges, we are building Mixtera, a system to support LLM training data management
+                    </p></div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/dominik.jpg"></td>
+                <td>
+                    <div class="name">Dominik Durner <span class="affiliation">CedarDB</span></div>
+                    <div class="time">16:10 &ndash; 16:30</div>
+                    <div class="title">High-Performance Query Processing on Cloud Object Stores</div>
+                    <div class="abstract"><p>The growing adoption of cloud-based data systems is making data management more flexible, scalable, and cost-effective. With virtually unlimited capacity and strong durability guarantees, cloud object storage is becoming essential to modern analytical database systems. This talk focuses on the efficient use of disaggregated cloud object storage for both analytical processing and hybrid transactional and analytical processing (HTAP).
+                        </p><p> Our work on cloud object storage explores the closing performance gap between network and local NVMe bandwidths, making direct processing on disaggregated cloud storage feasible for many analytical workloads. With the insights from our in-depth study on the economics and performance characteristics of cloud object stores, we developed AnyBlob, a multi-cloud download manager that optimizes high-throughput data retrieval while minimizing CPU overhead. By seamlessly integrating cloud object storage with database query engines, AnyBlob achieves retrieval performance comparable to systems that process data from fast local NVMe SSDs. Overall, we show that processing data from cloud object storage is a viable choice for analytical workloads without sacrificing elasticity or resource efficiency.
+                        </p><p>Extending this work, we present Colibri, a hybrid column-row storage engine designed to address the specific requirements of HTAP workloads. Colibri separates hot and cold data to support transactional and analytical workloads within a single system. Frequently updated transactional data is stored in an uncompressed row-based format, while analytical data resides in a compressed columnar layout optimized for efficient analytics. To take full advantage of the underlying hardware, Colibri minimizes logging overhead and integrates seamlessly with modern buffer managers. By combining the benefits of AnyBlob’s high-throughput cloud integration with Colibri’s hybrid storage architecture, we achieve considerable performance improvements on hybrid workloads. Moreover, our high-performance hybrid storage engine enables the elimination of traditional ETL pipelines that introduce high latency and data duplication.
+                        </p><p>In summary, our work bridges the gap between transactional and analytical processing in the cloud by providing a unified architecture that provides superior performance while being cost-effective.
+                    </p></div>
+                </td>
+            </tr>
+        </table>
+
         <h2>Updates</h2>
+        <p>Update from February 11, 2025:</p>
+        <ul>
+            <li>We published the preliminary program of the workshop.</li>
+        </ul>
+
         <p>Update from January 30, 2025:</p>
         <ul>
             <li>The BTW organizers have informed us that they can offer registration only for the day of the workshops (Tuesday, 04 March) including the city tour at half the conference rate (without dinner). So 135 € for GI members as Early Bird, 145 € for GI members after Early Bird, 160 € for non-GI members as Early Bird and 170 € for non-GI members after Early Bird.</li>
@@ -77,7 +303,6 @@
         <ul>
             <li>We have confirmed industry speakers from MotherDuck, Snowflake, Databricks, AWS Redshift, Firebolt, SAP, CedarDB, and Confluent (most likely), as well as academic speakers from TU München, TU Darmstadt, HPI Potsdam, TU Nürnberg, and the University of Copenhagen.</li>
         </ul>
-
         <h2>Workshop Description</h2>
         <p>
             The landscape of data management has recently undergone significant transformations, driven by the exponential growth of data and the widespread adoption of cloud technologies. As cloud data warehouses and data lakes become the new standards for large-scale data processing, it is essential for both academia and industry to anticipate future developments and contribute to the evolution of this field.
